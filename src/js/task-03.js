@@ -20,7 +20,8 @@ const ulElem = document.querySelector(".gallery");
 const imgRef = images
   .map(
     ({ url, alt }) =>
-      `<li class="list"><img class="img" src="${url}" alt="${alt}"/></li>`
+      `<li class="list"><img class="img" src="${url}" alt="${alt}" width="500px"/></li>`
   )
   .join("");
 ulElem.insertAdjacentHTML("beforeend", imgRef);
+ulElem.style.display = "flex";
