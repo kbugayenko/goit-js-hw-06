@@ -14,5 +14,13 @@ const images = [
     alt: "Group of Horses Running",
   },
 ];
-// const prod = ingredients.map(item => `<li class="item">${item}</li>`).join("");
-// ulElem.insertAdjacentHTML('beforeend', prod);
+
+const ulElem = document.querySelector(".gallery");
+
+const imgRef = images
+  .map(
+    ({ url, alt }) =>
+      `<li class="list"><img class="img" src="${url}" alt="${alt}"/></li>`
+  )
+  .join("");
+ulElem.insertAdjacentHTML("beforeend", imgRef);
