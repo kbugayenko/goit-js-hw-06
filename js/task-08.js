@@ -1,13 +1,19 @@
 "use strict";
 
-const refs = {
-  inputMail: document.querySelector("#mail"),
-  inputPass: document.querySelector("#password"),
-  submitEl: document.querySelector("#submit"),
-};
+const form = document.querySelector(".login-form");
 
-refs.input.addEventListener("input", onInput);
+form.addEventListener("submit", handleSubmit);
 
-function onInput(event) {
+function handleSubmit(event) {
   event.preventDefault();
+  const {
+    elements: { email, password },
+  } = event.currentTarget;
+
+  if (email.value === "" || password.value === "") {
+    return alert("Потрібно заповнити всі поля");
+  }
+
+  console.log(`Login: ${email.value}, Password: ${password.value}`);
+  event.currentTarget.reset();
 }
